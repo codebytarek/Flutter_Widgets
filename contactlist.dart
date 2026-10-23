@@ -8,52 +8,35 @@ class Contactlist extends StatefulWidget {
 }
 
 class _ContactlistState extends State<Contactlist> {
+  List contact = [
+    {'name': 'Aiub Ali', 'phone': '01738717829'},
+    {'name': 'Sakib Hossain', 'phone': '01832341643'},
+    {'name': 'Rakib Hossain', 'phone': '01913987654'},
+    {'name': 'Nahid Hossain', 'phone': '01898717899'},
+    {'name': 'Siddiq ', 'phone': '01788717855'},
+    {'name': 'Salim Hossain', 'phone': '01918714429'},
+    {'name': 'Faruk Ahmed', 'phone': '01744715529'},
+    {'name': 'Sazzad Hossain', 'phone': '01888717887'},
+    {'name': 'Jakir Hossain', 'phone': '01788717899'},
+    {'name': 'Rahat Kabir', 'phone': '01518717866'},
+    {'name': 'Fahad Hossain', 'phone': '01548717543'},
+    {'name': 'Ismail Hossain', 'phone': '01548717235'},
+    {'name': 'Salehin Kabir', 'phone': '01766717987'},
+    {'name': 'Anas Mahmud', 'phone': '01987717800'},
+    {'name': 'Rashedul Hasan', 'phone': '01976717321'},
+    {'name': 'Mehedi Hasan', 'phone': '01888717877'},
+    {'name': 'Khalid Hossain ', 'phone': '01878717854'},
+    {'name': 'Sabbir Ahmed', 'phone': '01438717800'},
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(25, 118, 210, 1),
-        centerTitle: true,
-        title: const Text(
-          "Contact List",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-        ),
-      ),
       body: ListView.builder(
-        itemCount: 15,
-        itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Card(
-            color: const Color.fromRGBO(255, 193, 7, 0.9),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            elevation: 4,
-            child: const ListTile(
-              leading: CircleAvatar(
-                radius: 25,
-                backgroundImage: NetworkImage(
-                    "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"),
-              ),
-              title: Text(
-                'Mehedi Hasan Tarek',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
-                ),
-              ),
-              subtitle: Text(
-                "01712345678",
-                style: TextStyle(color: Colors.black54),
-              ),
-              trailing: Icon(
-                Icons.call,
-                color: Colors.green,
-              ),
-              contentPadding:
-                  EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-            ),
-          ),
+        itemCount: contact.length,
+        itemBuilder: (context, index) => ListTile(
+          title: Text(contact[index]['name']),
+          subtitle: Text(contact[index]['phone']),
+          leading: CircleAvatar(child: Text(contact[index]['name'][0])),
         ),
       ),
     );
